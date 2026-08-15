@@ -23,6 +23,13 @@ const addTask = (task) => {
     
 }
 
+const removeTask = (index)=>{
+    const tasks = loadTask()
+    tasks.splice(index-1, 1)
+    saveTask(tasks)
+    console.log("task removed Successfully");
+}
+
 const listTasks = () =>{
     const tasks = loadTask()
     tasks.forEach((task,index) => {
