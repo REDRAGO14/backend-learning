@@ -8,11 +8,15 @@ const loadTask = () =>{
     const dataJSON = dataBuffer.toString()
     return JSON.parse(dataJSON)
 }
+const saveTask = (tasks) =>{
+    const dataJSON = JSON.stringify(tasks)
+    fs.writeFileSync(filePath, dataJSON)
+}
 const addTask = (task) => {
     const tasks = loadTask()
     console.log(tasks);
     tasks.push(task)
-    // saveTask(tasks)
+    saveTask(tasks)
 }
 
 if(command == "add"){
