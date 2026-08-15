@@ -3,11 +3,16 @@ const filePath = "./tasks.json"
 
 const command = process.argv[2]
 const argument = process.argv[3]
-
+const loadTask = () =>{
+    const dataBuffer = fs.readFileSync(filePath)
+    const dataJSON = dataBuffer.toString()
+    return JSON.parse(dataJSON)
+}
 const addTask = (task) => {
     const tasks = loadTask()
+    console.log(tasks);
     tasks.push(task)
-    saveTask(tasks)
+    // saveTask(tasks)
 }
 
 if(command == "add"){
