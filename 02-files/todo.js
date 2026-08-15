@@ -18,7 +18,10 @@ const saveTask = (tasks) => {
   try {
     const dataJSON = JSON.stringify(tasks);
     fs.writeFileSync(filePath, dataJSON);
-  } catch (err) {}
+  } catch (err) {
+    console.error(err);
+    
+  }
 };
 
 const addTask = (task) => {
@@ -42,11 +45,11 @@ const listTasks = () => {
   });
 };
 
-if (command == "add") {
+if (command === "add") {
   addTask(argument);
-} else if (command == "remove") {
+} else if (command === "remove") {
   removeTask(parseInt(argument));
-} else if (command == "list") {
+} else if (command === "list") {
   listTasks();
 } else {
   console.log("command not found");
